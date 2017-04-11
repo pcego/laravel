@@ -28,3 +28,5 @@ Route::get('ola/{nome}', 'homeController@ola');
 
 
 Route::get('lista', 'homeController@lista');
+
+Route::get('posts', 'PostsController@posts');
