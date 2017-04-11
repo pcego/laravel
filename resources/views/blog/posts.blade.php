@@ -10,6 +10,12 @@
         <p>{{$post->conteudo}}</p>
         <hr>
 
+        <h3>Comentários</h3>
+        @foreach($post->comentarios as $comentario)
+            <br>Nome:</br> {{$comentario->nome}}
+            <br>Comentario</br> {{$comentario->comentario}}
+        @endforeach
+
     @endforeach
 
 @stop

@@ -11,4 +11,8 @@ class Post extends Model
         'conteudo'
 
     ];
+
+    public function comentarios(){
+        return $this->hasMany('App\Comentario');
+    }
 }
