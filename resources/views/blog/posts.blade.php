@@ -9,18 +9,16 @@
         <h2>{{$post->titulo}}</h2>
         <p>{{$post->conteudo}}</p>
         <hr>
-
-        <ul>
-            @foreach($post->tags as $tag)
-                <li>{{$tag->nome}}</li>
-            @endforeach
-        </ul>
-
-        <h3>Comentários</h3>
+        @foreach($post->tags as $tag)
+           <ul>
+               <li>{{$tag}}</li>
+           </ul>
+        @endforeach
 
         @foreach($post->comentarios as $comentario)
-            <br>Nome:</br> {{$comentario->nome}}
-            <br>Comentario</br> {{$comentario->comentario}}
+            <h3>Comentários</h3>
+            <b>Nome:</b> {{$comentario->nome}} <br>
+            <b>Comentario:</b> {{$comentario->comentario}}
         @endforeach
 
     @endforeach
