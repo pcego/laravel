@@ -11,7 +11,7 @@
         <hr>
         @foreach($post->tags as $tag)
            <ul>
-               <li>{{$tag}}</li>
+               <li>{{$tag->nome}}</li>
            </ul>
         @endforeach
 
