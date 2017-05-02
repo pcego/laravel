@@ -30,3 +30,9 @@ Route::get('ola/{nome}', 'homeController@ola');
 Route::get('lista', 'homeController@lista');
 
 Route::get('posts', 'PostsController@posts');
+
+Route::get('admin', ['as'=>'admin.admin', 'uses'=> 'PostsAdminController@admin']);
+
+Route::get('admin/create', ['as'=>'admin.create', 'uses'=> 'PostsAdminController@create']);
+
+Route::post('admin/store', ['as'=>'admin.store', 'uses'=> 'PostsAdminController@store']);
