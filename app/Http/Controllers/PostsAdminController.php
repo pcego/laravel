@@ -46,4 +46,9 @@ class PostsAdminController extends Controller
 
         return redirect()->route('admin.admin');
     }
+
+    public function delete($id){
+        $this->posts->find($id)->delete();
+        return redirect()->route('admin.admin');
+    }
 }
