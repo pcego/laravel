@@ -17,7 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 // Rota para /home utilizando controller
 Route::get('/home', 'homeController@home');
 
@@ -31,14 +30,22 @@ Route::get('lista', 'homeController@lista');
 
 Route::get('posts', 'PostsController@posts');
 
-Route::get('admin', ['as'=>'admin.admin', 'uses'=> 'PostsAdminController@admin']);
 
-Route::get('admin/create', ['as'=>'admin.create', 'uses'=> 'PostsAdminController@create']);
 
-Route::post('admin/store', ['as'=>'admin.store', 'uses'=> 'PostsAdminController@store']);
+Route::group(['prefix'=>'admin'], function(){
 
-Route::get('admin/edit/{id}', ['as'=>'admin.edit', 'uses'=>'PostsAdminController@edit']);
+    Route::get('', ['as'=>'admin.admin', 'uses'=> 'PostsAdminController@admin']);
 
-Route::put('admin/update/{id}', ['as'=>'admin.update', 'uses'=>'PostsAdminController@update']);
+    Route::get('create', ['as'=>'admin.create', 'uses'=> 'PostsAdminController@create']);
 
-Route::get('admin/delete/{id}',['as'=>'admin.delete','uses'=>'PostsAdminController@delete']);
+    Route::post('store', ['as'=>'admin.store', 'uses'=> 'PostsAdminController@store']);
+
+    Route::get('edit/{id}', ['as'=>'admin.edit', 'uses'=>'PostsAdminController@edit']);
+
+    Route::put('update/{id}', ['as'=>'admin.update', 'uses'=>'PostsAdminController@update']);
+
+    Route::get('delete/{id}',['as'=>'admin.delete','uses'=>'PostsAdminController@delete']);
+
+
+});
+

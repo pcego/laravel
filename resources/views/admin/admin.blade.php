@@ -4,7 +4,9 @@
 
     <h1>Administração Blog</h1>
 
-    <table class=“table^”>
+    <a href="{{route('admin.create')}}" class="btn btn-primary">Criar Post</a>
+    <br><br>
+    <table class=“table”>
         <tr>
             <th>Código</th>
             <th>Título</th>
@@ -16,11 +18,13 @@
                 <td>{{$post->titulo}}</td>
 
                 <td>
-                    &nbsp &nbsp<a href="{{route('admin.edit', ['id'=>$post->id])}}">Modificar</a>
-                    &nbsp &nbsp<a href="{{route('admin.delete', ['id'=>$post->id])}}">Deletar</a>
+                    &nbsp &nbsp<a href="{{route('admin.edit', ['id'=>$post->id])}}" class="btn btn-default">Modificar</a>
+                    &nbsp &nbsp<a href="{{route('admin.delete', ['id'=>$post->id])}}" class="btn btn-danger">Deletar</a>
+
                 </td>
             </tr>
         @endforeach
     </table>
     {!! $posts->render() !!}
+
 @stop
