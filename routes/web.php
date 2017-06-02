@@ -31,8 +31,15 @@ Route::get('lista', 'homeController@lista');
 Route::get('posts', 'PostsController@posts');
 
 
+Route::get('auth', 'Auth\LoginController@showLoginForm');
 
-Route::group(['prefix'=>'admin'], function(){
+Route::post('auth/login', 'Auth\LoginController@login');
+
+
+Route::get('auth/logout', 'Auth\LoginController@logout');
+
+
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function(){
 
     Route::get('', ['as'=>'admin.admin', 'uses'=> 'PostsAdminController@admin']);
 
